@@ -1,0 +1,33 @@
+.card{
+  background-color: #e5ffff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px #ccc;
+  height: 300px;
+  width: 400px;
+  margin:5px;
+  text-align: center;
+  display: inline-block;
+}
+.card h1{
+  padding-right: 140px;
+  margin: 5px;
+}
+.image{
+  float: left;
+  padding-top:10%;
+  height:120px;
+  width: 150px;
+}
+.card p{
+  padding-top: 40px;
+}
+.deleteButton{
+  background: transparent;
+  float:right;
+  padding: 6px;
+  width:80px;
+  font-family: roboto;
+  margin-top: 10px;
+  border: 3px solid grey;
+  border-radius: 8px
+}

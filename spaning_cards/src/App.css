@@ -1,0 +1,12 @@
+.inputbox{
+    padding-left: 100px;
+}
+.button{
+    margin-top: 10px;
+    margin-left: 120px;  
+}
+.render{
+    display: inline-block;
+    text-align: center;
+    margin: 2%;
+}
