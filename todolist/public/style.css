@@ -1,0 +1,31 @@
+body{
+background: linear-gradient(to right, #75cada, #ccafe0);
+}
+.heading{
+    padding-top:30px;
+    color: white;
+    font-family:'Segoe UI','Regular bold','sans-serif';
+    text-align: center;
+    font-size: 80px;
+}
+.text{
+    font-family:'Segoe UI','sans-serif','Regular bold';
+    text-transform: capitalize;
+    font-size: x-large;
+    font-weight: bolder;
+    padding-left: 10px ;
+}
+.checkbox{
+    height: 1cm;
+    width: 1cm;
+    opacity: 1;
+    padding-top:10px;
+}
+.jumbo{
+    opacity: 0.9;
+    box-shadow: 5px 7px #0000002a;
+}
+label,input{
+    vertical-align: middle;
+    display: inline-block;
+}

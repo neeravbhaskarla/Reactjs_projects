@@ -1,0 +1,54 @@
+const tododata = [
+    {
+        id:1,
+        name:'VLSI',
+        checked:true
+    },
+    {
+        id:2,
+        name:'DICA',
+        checked:false
+    },
+    {
+        id:3,
+        name:'CAO',
+        checked:false
+    },
+    {
+        id:4,
+        name:'AWP',
+        checked:false
+    },
+    {
+        id:5,
+        name:'DC',
+        checked:false
+    },
+    {
+        id:6,
+        name:'EWTL',
+        checked:false
+    },
+    {
+        id:7,
+        name:'MPMC',
+        checked:false
+    },
+    {
+        id:8,
+        name:'DSP',
+        checked:false
+    },
+    {
+        id:9,
+        name:'RVSP',
+        checked:false
+    },
+    {
+        id:10,
+        name:'MW',
+        checked:false
+    }
+]
+
+export default tododata;
