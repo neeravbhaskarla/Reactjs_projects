@@ -1,0 +1,12 @@
+.inp{
+    margin:12px;
+    padding:10px;
+    text-align: center;
+}
+.input_text{
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px #ccc;
+    height: 20px;
+    width: 150px;
+}
