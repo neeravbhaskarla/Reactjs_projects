@@ -4,6 +4,9 @@ import axios from '../../../axios-order'
 import Button from '../../../components/UI/Button/Button'
 import Spinner from '../../../components/UI/Spinner/Spinner'
 import Input from '../../../components/UI/Input/Input'
+import {connect} from 'react-redux'
+import * as OrderActions from '../../../store/actions/index'
+import WithErrorHandler from '../../../hoc/WithErrorHandler/WithErrorHandler'
 
 class Contact extends React.Component{
     state = {
@@ -86,34 +89,27 @@ class Contact extends React.Component{
                 validation:{
                     required: false
                 },
-                value: '',
+                value: 'cheapest',
                 valid: true
             }
         },
-        formIsValid: false,
-        loading: false
+        formIsValid: false
     }
 
     orderHandler = ( event ) => {
         event.preventDefault();
-        this.setState( { loading: true } );
         const formData = {};
         for (let formElementIdentifier in this.state.orderForm) {
             formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
         }
         const order = {
             ingredients: this.props.ingredients,
-            price: this.props.totalPrice,
-            orderData: formData
+            price: parseFloat(this.props.totalPrice).toFixed(2),
+            orderData: formData,
+            userId: this.props.userId
         }
-        axios.post( '/orders.json', order )
-            .then( response => {
-                this.setState( { loading: false } );
-                this.props.history.push( '/' );
-            } )
-            .catch( error => {
-                this.setState( { loading: false } );
-            } );
+        this.props.onOrderBurger(order,this.props.token)
+        
     }
 
     checkValidity(value, rules) {
@@ -176,7 +172,7 @@ class Contact extends React.Component{
                 <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
             </form>
         );
-        if ( this.state.loading ) {
+        if ( this.props.loading ) {
             form = <Spinner />;
         }
         return (
@@ -187,4 +183,18 @@ class Contact extends React.Component{
         );
     }
 }
-export default Contact
+const mapStateToProps = state=>{
+    return{
+        ingredients: state.burger.ingredients,
+        totalPrice: state.burger.totalPrice,
+        loading: state.order.loading,
+        token: state.auth.token,
+        userId: state.auth.userId
+    }
+}
+const mapDispatchToProps = dispatch=>{
+    return{
+        onOrderBurger: (order,token)=>dispatch(OrderActions.placeBurgerOrder(order,token))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(WithErrorHandler(Contact,axios))
